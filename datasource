@@ -1,0 +1,75 @@
+
+
+/*
+data "azurerm_resource_group" "rg" {
+  name = "terraform"
+}
+
+output "id" {
+  value = data.azurerm_resource_group.rg.id
+}
+
+data "azurerm_subscription" "current" {
+}
+
+output "current_subscription_display_name" {
+  value = data.azurerm_subscription.current.display_name
+}
+
+data "terraform_remote_state" "cli" {
+  backend = "remote"
+
+  config = {
+    organization = "Relex_Learning"
+    workspaces = {
+
+      name = "learn-terraform-azure-cli"
+    }
+  }
+}
+
+output "db_connect_string" {
+  value     = data.terraform_remote_state.cli.outputs.db_connect_string
+  sensitive = true
+}
+*/
+
+/*
+resource "azurerm_ssh_public_key" "ssh" {
+  name                = "ssh_key"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  public_key          = file("${path.module}/.ssh/id_rsa.pub")
+}
+
+output "ssh" {
+  value = azurerm_ssh_public_key.ssh.public_key
+
+}
+*/
+
+/*
+data "azuread_application" "sp" {
+  display_name = "terraform-sp"
+}
+
+output "application_object_id" {
+  value = data.azuread_application.sp.object_id
+  sensitive = true
+}
+
+output "application_client_id" {
+  value = data.azuread_application.sp.client_id
+  sensitive = true
+}
+
+*/
+
+
+
+
+
+
+
+
+

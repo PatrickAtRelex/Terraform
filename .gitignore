@@ -1,0 +1,6 @@
+# Ignore the .terraform directory
+.terraform/
+
+# Ensure terraform.lock.hcl is tracked
+!terraform.lock.hcl
+
